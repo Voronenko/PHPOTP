@@ -36,7 +36,8 @@ Now you can see on you smartphone 6 character long password that allows you to v
 #Validating the integrity
 Now that we have the secret and the smartphone is generating the verification code, let's try to validate the it.
 
-`<?php
+```php
+<?php
 	require_once("rfc6238.php");
 	
 	$secretkey = 'GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ';  //your secret code
@@ -52,20 +53,20 @@ Now that we have the secret and the smartphone is generating the verification co
 	{
 		echo "Invalid code\n";
 	}
-`
+```
 
 When you run such a script and you put in the correct secret and correct verification code, it will print "Code is valid" or "Invalid code" on the standard output.
 
 #Generating the code
 You can also generate the verification code yourself using the library.
 
-`print TokenAuth6238::getTokenCodeDebug($secretkey,0);`
+```print TokenAuth6238::getTokenCodeDebug($secretkey,0);```
 
 
 #Generating the QRCode for GOOGLE Authenticator
 You can also generate the image that can be used by mobile device to configure authentication program
 
-`print sprintf('<img src="%s"/>',TokenAuth6238::getBarCodeUrl('','',$secretkey));`
+```print sprintf('<img src="%s"/>',TokenAuth6238::getBarCodeUrl('','',$secretkey));```
 
 #Conclusion
 Using this few simple steps, you can add additional validation layer into your authentication process in your application and thus provide higher security for your users.
