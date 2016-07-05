@@ -15,5 +15,5 @@
 		echo "Invalid code\n";
 	}
 
-        print sprintf('<img src="%s"/>',TokenAuth6238::getBarCodeUrl('','',$secretkey));
+        print sprintf('<img src="%s"/>',TokenAuth6238::getBarCodeUrl('','',$secretkey,'My%20App'));
         print TokenAuth6238::getTokenCodeDebug($secretkey,0); 
