@@ -8,7 +8,7 @@ I hope it could help you to make your applications more secure. Two factor authe
 
 Explain in detail - http://en.wikipedia.org/wiki/Two-factor_authentication
 
-If you are interested in understanding algorythm step by step - you are invited to read article http://labs.voronenko.info/109454540
+If you are interested in understanding algorythm step by step - you are invited to read article http://www.codeproject.com/Articles/502240/Mysterious-Google-two-step-authentication-in-debug
 
 I will be using Php in this post, but the same can be implemented in any other programming language.
 
