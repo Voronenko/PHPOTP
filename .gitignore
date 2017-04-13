@@ -1,0 +1,2 @@
+#Ignoring whole PHPstorm util folder
+.idea/*
