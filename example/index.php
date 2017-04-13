@@ -5,8 +5,8 @@
  * Date: 3/26/2017
  * Time: 4:15 PM
  */
-include("Verificator.php");
-include("BarCode.php");
+include("../code/Verificator.php");
+include("../code/BarCode.php");
 include("config.php");
 
 use AshaTob\GoogleAuth\Logger;
