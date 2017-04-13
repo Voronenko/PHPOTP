@@ -6,6 +6,7 @@
  */
 namespace AshaTob\GoogleAuth;
 include("Algorithm.php");
+include("Logger.php");
 
 /**
  * Class Verificator
