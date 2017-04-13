@@ -7,10 +7,10 @@
  */
 include("Verificator.php");
 include("BarCode.php");
+include("config.php");
 
-const APP_SECRET = "GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ";
 
-$verificator = new \AshaTob\GoogleAuth\Verificator(APP_SECRET);
+$verificator = new \AshaTob\GoogleAuth\Verificator(APP_SECRET, FUZZINESS);
 echo \AshaTob\GoogleAuth\BarCode::generate("AshaTob", "My_company", APP_SECRET, "My_application");
 
 if (isset($_GET["code"])) {

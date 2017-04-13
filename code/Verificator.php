@@ -11,29 +11,34 @@ include("Algorithm.php");
  * Class Verificator
  * @package AshaTob\GoogleAuth
  *
- * @property string $secret
- * @property string $code
- * @property Algorithm $algorithm
+ * @property string    $secret
+ * @property string[]  $codes
+ * @property Algorithm $algorithm 
  */
 class Verificator
 {
     private $secret;
-    private $code;
+    private $codes;
     private $algorithm;
+	
+	public $trace;
 
     /**
      * Verificator constructor.
      *
-     * @param string $secret
+     * @param string  $secret
+	 * @param integer $fuzziness - amount of past codes we keep track of.
      */
-    public function __construct($secret)
+    public function __construct($secret, $fuzziness = 3)
     {
         $this->secret = $secret;
-        $this->algorithm = new Algorithm();
         $key = Base32Static::decode($this->secret);
-        $checktime = floor(time() / 30);
-        $thiskey = $this->algorithm->oath_hotp($key, $checktime);
-        $this->code = $this->algorithm->oath_truncate($thiskey, 6);
+		$this->algorithm = new Algorithm();
+		for($i = 0; $i < $fuzziness; $i++) {
+			$checktime = floor(time() / 30) - $i;
+			$tokenCode = $this->algorithm->oath_hotp($key, $checktime);
+			$this->codes[] = $this->algorithm->oath_truncate($tokenCode, 6);
+		}
     }
 
     /**
@@ -42,14 +47,14 @@ class Verificator
      */
     public function verify($code)
     {
-        return $this->code == $code;
+        return in_array($code, $this->codes);
     }
 
     /**
      * @return string
      */
-    public function getCode()
+    public function getCodes()
     {
-        return $this->code;
+        return $this->codes;
     }
 }
