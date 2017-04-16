@@ -14,7 +14,7 @@ use Voronenko\PHPOTP\BarCode;
 
 $verificator = new Verificator(APP_SECRET, FUZZINESS);
 echo "<h1>Sign up form:</h1>";
-echo BarCode::generate("AshaTob", "My_company", APP_SECRET, "My_application");
+echo BarCode::generate( APP_SECRET, "User_alias", "My_company", "My_application");
 ?>
 
 <br/>
