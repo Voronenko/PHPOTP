@@ -4,10 +4,10 @@
  * Date: 3/26/2017
  * Time: 6:15 PM
  */
-namespace AshaTob\GoogleAuth;
+namespace Voronenko\PHPOTP;
 /**
  * Class BarCode
- * @package AshaTob\GoogleAuth
+ * @package Voronenko\PHPOTP
  */
 class BarCode
 {

@@ -10,4 +10,4 @@ const APP_SECRET = "GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ";
 //Amount of codes we are keeping trace about, in order to account slow connection or human factor.
 const FUZZINESS = 3;
 //Application in debug mode or not.
-const DEBUG = 0;
+const DEBUG = 1;

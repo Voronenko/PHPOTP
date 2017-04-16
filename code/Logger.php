@@ -4,11 +4,11 @@
  * Date: 4/13/2017
  * Time: 17:01 PM
  */
-namespace AshaTob\GoogleAuth;
+namespace Voronenko\PHPOTP;
 
 /**
  * Class Logger
- * @package AshaTob\GoogleAuth
+ * @package Voronenko\PHPOTP
  *
  * @property string[] $trace
  */

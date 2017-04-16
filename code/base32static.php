@@ -9,7 +9,7 @@
  * @package default
  * @author  Bryan Ruiz
  **/
-namespace AshaTob\GoogleAuth;
+namespace Voronenko\PHPOTP;
 class Base32Static
 {
 
