@@ -38,21 +38,19 @@ Now that we have the secret and the smartphone is generating the verification co
 
 ```php
 <?php
-	require_once("rfc6238.php");
-	
-	$secretkey = 'GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ';  //your secret code
-	$currentcode = '571427';  //code to validate, for example received from device
+require_once("../code/Verificator.php");
+use Voronenko\PHPOTP\Verificator;
 
+$secretkey = 'GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ';  //your secret code
+$currentcode = '571427';  //code to validate, for example received from device
 
-	
-	if (TokenAuth6238::verify($secretkey,$currentcode))
-	{
-		echo "Code is valid\n";
-	}
-	else
-	{
-		echo "Invalid code\n";
-	}
+$verificator = new Verificator($secretkey);
+
+if ($verificator->verify($currentcode)) {
+    echo "Code is valid\n";
+} else {
+    echo "Invalid code\n";
+}
 ```
 
 When you run such a script and you put in the correct secret and correct verification code, it will print "Code is valid" or "Invalid code" on the standard output.
@@ -60,13 +58,13 @@ When you run such a script and you put in the correct secret and correct verific
 # Generating the code
 You can also generate the verification code yourself using the library.
 
-```print TokenAuth6238::getTokenCodeDebug($secretkey,0);```
+```print $verificator->getCodes();```
 
 
 # Generating the QRCode for GOOGLE Authenticator
 You can also generate the image that can be used by mobile device to configure authentication program
 
-```print sprintf('<img src="%s"/>',TokenAuth6238::getBarCodeUrl('','',$secretkey));```
+```print BarCode::generate( APP_SECRET, "User_alias", "My_company", "My_application");;```
 
 Parameters for getBarCodeUrl are as follows:
 ```php
