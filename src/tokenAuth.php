@@ -26,10 +26,8 @@
  * SOFTWARE.
  */
 
-namespace phpotp\voronenko;
+namespace voronenko\phpotp;
 
-
-use phpotp\bryanRuiz\base32;
 
 class tokenAuth
 {

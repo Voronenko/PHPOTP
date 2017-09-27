@@ -9,7 +9,7 @@
  * @author Bryan Ruiz
  **/
 
-namespace phpotp\bryanRuiz;
+namespace voronenko\phpotp;
 
 
 class base32

@@ -8,11 +8,11 @@ require __DIR__."/tokenAuth.php";
 $secretkey = 'GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ';
 $currentcode = '34890';
 
-if (\phpotp\voronenko\tokenAuth::verify($secretkey,$currentcode)) {
+if (\voronenko\phpotp\tokenAuth::verify($secretkey,$currentcode)) {
     echo "Code is valid\n";
 } else {
     echo "Invalid code\n";
 }
 
-print sprintf('<img src="%s"/>',\phpotp\voronenko\tokenAuth::getBarCodeUrl('','',$secretkey,'My%20App'));
-print \phpotp\voronenko\tokenAuth::getTokenCode($secretkey,0);
+print sprintf('<img src="%s"/>',\voronenko\phpotp\tokenAuth::getBarCodeUrl('','',$secretkey,'My%20App'));
+print \voronenko\phpotp\tokenAuth::getTokenCode($secretkey,0);
