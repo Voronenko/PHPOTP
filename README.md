@@ -42,7 +42,7 @@ require __DIR__."path\to\tokenAuth.php";
 A secret is used to provide a base for your application and the device generating the code to validate the user's identity. The secret is important and should be transfered over a secured channel. If attacker will get access to the secret, it's possible to generate the verification code and get around the security procedure.
 
 ```
-secret = Base32Static::encode("yourrandomsecretkey")
+secret = Base32::encode("yourrandomsecretkey")
 ```
 
 #Google authenticator
@@ -52,8 +52,14 @@ Install the application and create new account by entering the a code. Name your
 
 Now you can see on you smartphone 6 character long password that allows you to validate the user's identity.
 
-#Validating the integrity
-Now that we have the secret and the smartphone is generating the verification code, let's try to validate the it.
+# Generating the code(OTP)
+You can also generate the verification code yourself using the library.
+
+```print TokenAuth::getTokenCodeDebug($secretkey,0);```
+
+
+#Validating the code(OTP)
+Now that we have the secret and the smart phone is generating the verification code, let's try to validate the it.
 
 ```php
 <?php
@@ -75,11 +81,6 @@ Now that we have the secret and the smartphone is generating the verification co
 ```
 
 When you run such a script and you put in the correct secret and correct verification code, it will print "Code is valid" or "Invalid code" on the standard output.
-
-# Generating the code
-You can also generate the verification code yourself using the library.
-
-```print TokenAuth6238::getTokenCodeDebug($secretkey,0);```
 
 
 # Generating the QRCode for GOOGLE Authenticator
