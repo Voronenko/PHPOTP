@@ -1,0 +1,17 @@
+{
+    "name": "voronenko/phpotp",
+    "description": "PHP Implementation of the OTP algorithm",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vyacheslav Voronenko",
+            "email": "git@vorenenko.info"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": { "vorenenko\\phpotp\\": "src/" }
+    }
+}
