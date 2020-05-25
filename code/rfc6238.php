@@ -77,8 +77,10 @@
   		$b32 	= "234567QWERTYUIOPASDFGHJKLZXCVBNM";
   		$s 	= "";
 
+ 	$srand = openssl_random_pseudo_bytes($length, $strong);
+
       for ($i = 0; $i < $length; $i++)
-			  $s .= $b32[rand(0,31)];
+			   $s .= $b32[ord($srand[$i]) % 32];
 
         return $s;
     }
